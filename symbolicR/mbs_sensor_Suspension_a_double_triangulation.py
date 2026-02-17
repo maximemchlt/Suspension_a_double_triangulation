@@ -10,7 +10,7 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Tue Feb 17 12:09:53 2026
+#	==> Generation Date: Tue Feb 17 18:10:01 2026
 #	==> using automatic loading with extension .mbs 
 #
 #	==> Project name: Suspension_a_double_triangulation
@@ -31,11 +31,38 @@ def sensor(sens, s, isens):
   qdd = s.qdd
 
   dpt = s.dpt
+ 
+# Augmented Joint Position Vectors
+
+ 
+# Sensor Kinematics
+
+
+  if (isens == 1): 
+
+    sens.P[1] = 0
+    sens.P[2] = 0
+    sens.P[3] = q[1]
+    sens.R[1,1] = (1.0)
+    sens.R[2,2] = (1.0)
+    sens.R[3,3] = (1.0)
+    sens.V[1] = 0
+    sens.V[2] = 0
+    sens.V[3] = qd[1]
+    sens.OM[1] = 0
+    sens.OM[2] = 0
+    sens.OM[3] = 0
+    sens.J[3,1] = (1.0)
+    sens.A[1] = 0
+    sens.A[2] = 0
+    sens.A[3] = qdd[1]
+    sens.OMP[1] = 0
+    sens.OMP[2] = 0
+    sens.OMP[3] = 0
+
+ 
+
 
 # Number of continuation lines = 0
 
-  print("ERROR : Your symbolic files seem obsolete, i.e. not up-to-date with your MBsysPad model. ")
-  print("        Please regenerate your symbolic files (MBsysPad->Tools->Generate Symbolic Files). Exiting. ")
-  print("        Error raised in mbs_sensor.")
-  s.flag_stop = 1
 

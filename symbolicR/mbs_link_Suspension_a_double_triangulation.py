@@ -10,7 +10,7 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Tue Feb 17 12:09:53 2026
+#	==> Generation Date: Tue Feb 17 18:10:01 2026
 #	==> using automatic loading with extension .mbs 
 #
 #	==> Project name: Suspension_a_double_triangulation
@@ -31,22 +31,21 @@ def link(frc, trq, Flink, Z, Zd, s, tsim):
  
 # Trigonometric functions
 
-    S1 = sin(q[1])
-    C1 = cos(q[1])
+    S2 = sin(q[2])
+    C2 = cos(q[2])
  
 # Augmented Joint Position Vectors
 
  
 # Link anchor points Kinematics
 
-    RLlnk2_12 = s.dpt[1,4]*C1+s.dpt[3,4]*S1
-    RLlnk2_32 = -s.dpt[1,4]*S1+s.dpt[3,4]*C1
-    POlnk2_12 = RLlnk2_12+s.dpt[1,1]
-    POlnk2_32 = RLlnk2_32+s.dpt[3,1]
-    ORlnk2_12 = qd[1]*RLlnk2_32
-    ORlnk2_32 = -qd[1]*RLlnk2_12
-    Plnk11 = POlnk2_12-s.dpt[1,3]
-    Plnk31 = POlnk2_32-s.dpt[3,3]
+    RLlnk2_12 = s.dpt[1,6]*C2+s.dpt[3,6]*S2
+    RLlnk2_32 = -s.dpt[1,6]*S2+s.dpt[3,6]*C2
+    POlnk2_12 = RLlnk2_12+s.dpt[1,2]
+    ORlnk2_12 = qd[2]*RLlnk2_32
+    ORlnk2_32 = -qd[2]*RLlnk2_12
+    Plnk11 = POlnk2_12-s.dpt[1,4]
+    Plnk31 = RLlnk2_32-s.dpt[3,4]
     PPlnk1 = Plnk11*Plnk11+Plnk31*Plnk31
     Z1 = sqrt(PPlnk1)
     e11 = Plnk11/Z1
@@ -59,15 +58,21 @@ def link(frc, trq, Flink, Z, Zd, s, tsim):
  
 # Link Dynamics: forces projection on body-fixed frames
 
-    fSlnk11 = Flink1*(e11*C1-e31*S1)
-    fSlnk31 = Flink1*(e11*S1+e31*C1)
-    trqlnk1_1_2 = -fSlnk11*s.dpt[3,4]+fSlnk31*(s.dpt[1,4]-s.l[1,1])
+    fPlnk11 = Flink1*e11
+    fPlnk31 = Flink1*e31
+    trqlnk1_1_2 = fPlnk11*(s.dpt[3,4]-s.l[3,1])-fPlnk31*s.dpt[1,4]
+    fSlnk11 = Flink1*(e11*C2-e31*S2)
+    fSlnk31 = Flink1*(e11*S2+e31*C2)
+    trqlnk2_1_2 = -fSlnk11*s.dpt[3,6]+fSlnk31*(s.dpt[1,6]-s.l[1,2])
  
 # Symbolic model output
 
-    frc[1,1] = s.frc[1,1]-fSlnk11
-    frc[3,1] = s.frc[3,1]-fSlnk31
+    frc[1,1] = s.frc[1,1]+fPlnk11
+    frc[3,1] = s.frc[3,1]+fPlnk31
     trq[2,1] = s.trq[2,1]+trqlnk1_1_2
+    frc[1,2] = s.frc[1,2]-fSlnk11
+    frc[3,2] = s.frc[3,2]-fSlnk31
+    trq[2,2] = s.trq[2,2]+trqlnk2_1_2
  
 # Symbolic model output
 

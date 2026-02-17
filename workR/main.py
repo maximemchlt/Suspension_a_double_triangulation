@@ -7,12 +7,7 @@ Summary
 This template loads the data file *.mbs and execute:
  - the coordinate partitioning module
  - the direct dynamic module (time integration of equations of motion).
- - the coordinate partitioning module
- - the direct dynamic module (time integration of equations of motion).
- - the equilibrium module
- - the modal module
- - the inverse dynamic module
- - the solverkin module
+ - if available, plot the time evolution of the first generalized coordinate.
 
 It may have to be adapted and completed by the user.
 
@@ -26,7 +21,7 @@ Contact : info@robotran.be
 (c) Universite catholique de Louvain
 """
 
-# %%===========================================================================
+# %%============================================================================
 # Packages loading
 # =============================================================================
 try:
@@ -39,7 +34,7 @@ except:
 # %%===========================================================================
 # Project loading
 # =============================================================================
-mbs_data = Robotran.MbsData("dataR/Suspension_a_double_triangulation.mbs")
+mbs_data = Robotran.MbsData('dataR/Suspension_a_double_triangulation.mbs')
 
 # %%===========================================================================
 # Partitionning
@@ -49,50 +44,33 @@ mbs_part = Robotran.MbsPart(mbs_data)
 mbs_part.set_options(rowperm=1, verbose=1)
 mbs_part.run()
 
-# =============================================================================
-# Equilibrium
-# =============================================================================
-mbs_data.process = 2
-mbs_equil = Robotran.MbsEquil(mbs_data)
-mbs_equil.set_options(method=1, senstol=1e-2, verbose=1)
-mbs_equil.run()
-
-# =============================================================================
-# Modal Analysis
-# =============================================================================
-mbs_data.process = 4
-mbs_modal = Robotran.MbsModal(mbs_data)
-mbs_modal.set_options(save_result=1, save_anim=1, mode_ampl=0.2)
-mbs_modal.run()
-
-# =============================================================================
+# %%===========================================================================
 # Direct Dynamics
 # =============================================================================
 mbs_data.process = 3
 mbs_dirdyn = Robotran.MbsDirdyn(mbs_data)
-mbs_dirdyn.set_options(dt0=1e-3, tf=10.0, save2file=1)
-mbs_dirdyn.run()
+mbs_dirdyn.set_options(dt0=1e-4, tf=5.0, save2file=1)
+results = mbs_dirdyn.run()
 
+# %%===========================================================================
+# Plotting results
 # =============================================================================
-# Inverse Kinematics
-# =============================================================================
-mbs_data.process = 5
-mbs_solvekin = Robotran.MbsSolvekin(mbs_data)
-mbs_solvekin.set_options(trajectoryqname="../resultsR/dirdyn_q.res")
-mbs_solvekin.set_options(trajectoryqdname="../resultsR/dirdyn_qd.res")
-mbs_solvekin.set_options(trajectoryqddname="../resultsR/dirdyn_qdd.res")
-mbs_solvekin.set_options(t0=1.3333, tf=1.4, dt=1e-4, framerate=10000)
-mbs_solvekin.set_options(motion="trajectory")
-mbs_solvekin.run()
+try:
+    import matplotlib.pyplot as plt
+except Exception:
+    raise RuntimeError('Unable to load matplotlib, plotting results unavailable.')
 
-# =============================================================================
-# Inverse Dynamics
-# =============================================================================
-mbs_data.process = 6
-mbs_invdyn = Robotran.MbsInvdyn(mbs_data)
-mbs_invdyn.set_options(trajectoryqname="../resultsR/dirdyn_q.res")
-mbs_invdyn.set_options(trajectoryqdname="../resultsR/dirdyn_qd.res")
-mbs_invdyn.set_options(trajectoryqddname="../resultsR/dirdyn_qdd.res")
-mbs_invdyn.set_options(t0=0.0, tf=5.0, dt=1e-3)
-mbs_invdyn.set_options(motion="trajectory")
-mbs_invdyn.run()
+# Figure creation
+fig = plt.figure(num='Example of plot')
+axis = fig.gca()
+
+# Plotting data's
+axis.plot(results.q[:, 0], results.q[:, 1], label='q[1]')
+
+# Figure enhancement
+axis.grid(True)
+axis.set_xlim(left=mbs_dirdyn.get_options('t0'), right=mbs_dirdyn.get_options('tf'))
+axis.set_xlabel('Time (s)')
+axis.set_ylabel('Coordinate value (m or rad)')
+
+plt.show()

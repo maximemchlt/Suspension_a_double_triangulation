@@ -1,1 +1,0 @@
-# Suspension_a_double_triangulation
