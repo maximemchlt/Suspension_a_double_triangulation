@@ -15,9 +15,9 @@
     <point>
       <pointname>Point_inf</pointname>
       <coordinates>
-        <x>3.23</x>
+        <x>0.323</x>
         <y>0.0</y>
-        <z>2.0</z>
+        <z>0.2</z>
       </coordinates>
       <graphics>
         <x2D>
@@ -32,9 +32,9 @@
     <point>
       <pointname>Point_sup</pointname>
       <coordinates>
-        <x>3.74</x>
+        <x>0.374</x>
         <y>0.0</y>
-        <z>0.27</z>
+        <z>0.027</z>
       </coordinates>
       <graphics>
         <x2D>
@@ -49,9 +49,9 @@
     <point>
       <pointname>Point_ressort</pointname>
       <coordinates>
-        <x>4.1</x>
+        <x>0.41</x>
         <y>0.0</y>
-        <z>-3.1</z>
+        <z>-0.31</z>
       </coordinates>
       <graphics>
         <x2D>
@@ -107,6 +107,89 @@
       <x3D>
         <x3D_points />
         <x3D_lines />
+        <x3D_shapes>
+          <box>
+            <name>sup</name>
+            <position>
+              <x>0.187</x>
+              <y>0.0</y>
+              <z>-0.075</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.10000000149011612</transparency>
+            <size>
+              <x>0.374</x>
+              <y>0.05</y>
+              <z>0.25</z>
+            </size>
+          </box>
+          <box>
+            <name>inf</name>
+            <position>
+              <x>0.1615</x>
+              <y>0.0</y>
+              <z>0.125</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.10000000149011612</transparency>
+            <size>
+              <x>0.323</x>
+              <y>0.05</y>
+              <z>0.15</z>
+            </size>
+          </box>
+          <box>
+            <name>ressort</name>
+            <position>
+              <x>0.205</x>
+              <y>0.0</y>
+              <z>-0.3</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.10000000149011612</transparency>
+            <size>
+              <x>0.41</x>
+              <y>0.05</y>
+              <z>0.2</z>
+            </size>
+          </box>
+        </x3D_shapes>
       </x3D>
     </graphics>
   </base>
@@ -129,16 +212,13 @@
               <y>306.0</y>
             </position>
           </x2D>
-          <x3D>
-            <x3D_joint />
-            <x3D_frame />
-          </x3D>
+          <x3D />
         </graphics>
       </joint>
       <mass>2.68</mass>
       <com>
         <coordinates>
-          <x>1.5</x>
+          <x>0.15</x>
           <y>0.0</y>
           <z>0.0</z>
         </coordinates>
@@ -150,15 +230,15 @@
       <point>
         <pointname>Point_ressort2</pointname>
         <coordinates>
-          <x>2.4</x>
+          <x>0.24</x>
           <y>0.0</y>
-          <z>-0.35</z>
+          <z>-0.035</z>
         </coordinates>
         <graphics>
           <x2D>
             <position>
-              <x>439.0</x>
-              <y>306.0</y>
+              <x>438.0</x>
+              <y>291.0</y>
             </position>
           </x2D>
           <x3D />
@@ -167,7 +247,7 @@
       <point>
         <pointname>Point_sortie_inf</pointname>
         <coordinates>
-          <x>3.47</x>
+          <x>0.347</x>
           <y>0.0</y>
           <z>0.0</z>
         </coordinates>
@@ -220,6 +300,32 @@
           <x3D_com />
           <x3D_points />
           <x3D_lines />
+          <x3D_shapes>
+            <cylinder>
+              <name>cylindre</name>
+              <position>
+                <x>0.1735</x>
+                <y>0.0</y>
+                <z>0.0</z>
+              </position>
+              <scale>
+                <x>1.0</x>
+                <y>1.0</y>
+                <z>1.0</z>
+              </scale>
+              <rotation>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>1.5707963267948966</z>
+              </rotation>
+              <color R="255" G="0" B="0" />
+              <specularColor R="255" G="255" B="255" />
+              <shininess>250.0</shininess>
+              <transparency>0.0</transparency>
+              <radius>0.01</radius>
+              <height>0.347</height>
+            </cylinder>
+          </x3D_shapes>
         </x3D>
       </graphics>
     </body>
@@ -240,16 +346,13 @@
               <y>224.0</y>
             </position>
           </x2D>
-          <x3D>
-            <x3D_joint />
-            <x3D_frame />
-          </x3D>
+          <x3D />
         </graphics>
       </joint>
       <mass>1.0</mass>
       <com>
         <coordinates>
-          <x>1.2</x>
+          <x>0.12</x>
           <y>0.0</y>
           <z>0.0</z>
         </coordinates>
@@ -261,7 +364,7 @@
       <point>
         <pointname>Point_sortie_sup</pointname>
         <coordinates>
-          <x>2.43</x>
+          <x>0.243</x>
           <y>0.0</y>
           <z>0.0</z>
         </coordinates>
@@ -314,11 +417,301 @@
           <x3D_com />
           <x3D_points />
           <x3D_lines />
+          <x3D_shapes>
+            <cylinder>
+              <name>New_Shape</name>
+              <position>
+                <x>0.1215</x>
+                <y>0.0</y>
+                <z>0.0</z>
+              </position>
+              <scale>
+                <x>1.0</x>
+                <y>1.0</y>
+                <z>1.0</z>
+              </scale>
+              <rotation>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>1.5707963267948966</z>
+              </rotation>
+              <color R="255" G="0" B="0" />
+              <specularColor R="255" G="255" B="255" />
+              <shininess>250.0</shininess>
+              <transparency>0.0</transparency>
+              <radius>0.01</radius>
+              <height>0.243</height>
+            </cylinder>
+          </x3D_shapes>
+        </x3D>
+      </graphics>
+    </body>
+    <body>
+      <bodyname>fusee</bodyname>
+      <parent>
+        <bodyname>bras_sup</bodyname>
+        <pointname>Point_sortie_sup</pointname>
+      </parent>
+      <joint>
+        <jointname>Joint_2</jointname>
+        <type>R2</type>
+        <nature>independent</nature>
+        <graphics>
+          <x2D>
+            <position>
+              <x>581.0</x>
+              <y>224.0</y>
+            </position>
+          </x2D>
+          <x3D />
+        </graphics>
+      </joint>
+      <mass>6.0</mass>
+      <com>
+        <coordinates>
+          <x>0.05</x>
+          <y>0.0</y>
+          <z>0.112</z>
+        </coordinates>
+      </com>
+      <inertia>
+        <Ixx>0.032</Ixx>
+        <Izz>0.032</Izz>
+      </inertia>
+      <point>
+        <pointname>Point_0</pointname>
+        <coordinates>
+          <x>0.0</x>
+          <y>0.0</y>
+          <z>0.237</z>
+        </coordinates>
+        <graphics>
+          <x2D>
+            <position>
+              <x>581.0</x>
+              <y>308.0</y>
+            </position>
+          </x2D>
+          <x3D />
+        </graphics>
+      </point>
+      <point>
+        <pointname>Point_1</pointname>
+        <coordinates>
+          <x>0.094</x>
+          <y>0.0</y>
+          <z>0.142</z>
+        </coordinates>
+        <graphics>
+          <x2D>
+            <position>
+              <x>615.0</x>
+              <y>265.0</y>
+            </position>
+          </x2D>
+          <x3D />
+        </graphics>
+      </point>
+      <graphics>
+        <x2D>
+          <position>
+            <x>-10.0</x>
+            <y>-11.0</y>
+          </position>
+          <name_pos>
+            <x>0.0</x>
+            <y>0.0</y>
+          </name_pos>
+          <shape>rectangle</shape>
+          <size>
+            <x>22.0</x>
+            <y>106.0</y>
+          </size>
+          <control_points>
+            <control_point>
+              <x>12.0</x>
+              <y>-11.0</y>
+            </control_point>
+            <control_point>
+              <x>12.0</x>
+              <y>95.0</y>
+            </control_point>
+            <control_point>
+              <x>-10.0</x>
+              <y>95.0</y>
+            </control_point>
+            <control_point>
+              <x>-10.0</x>
+              <y>-11.0</y>
+            </control_point>
+          </control_points>
+          <angle>0.0</angle>
+        </x2D>
+        <x3D>
+          <x3D_com />
+          <x3D_points />
+          <x3D_lines />
+          <x3D_shapes>
+            <cylinder>
+              <name>New_shape</name>
+              <position>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>0.1185</z>
+              </position>
+              <scale>
+                <x>1.0</x>
+                <y>1.0</y>
+                <z>1.0</z>
+              </scale>
+              <rotation>
+                <x>1.5707963267948966</x>
+                <y>0.0</y>
+                <z>0.0</z>
+              </rotation>
+              <color R="255" G="0" B="0" />
+              <specularColor R="255" G="255" B="255" />
+              <shininess>250.0</shininess>
+              <transparency>0.0</transparency>
+              <radius>0.01</radius>
+              <height>0.237</height>
+            </cylinder>
+          </x3D_shapes>
+        </x3D>
+      </graphics>
+    </body>
+    <body>
+      <bodyname>roue</bodyname>
+      <parent>
+        <bodyname>fusee</bodyname>
+        <pointname>Point_1</pointname>
+      </parent>
+      <joint>
+        <jointname>Joint_3</jointname>
+        <type>R1</type>
+        <nature>independent</nature>
+        <graphics>
+          <x2D>
+            <position>
+              <x>673.0</x>
+              <y>266.0</y>
+            </position>
+          </x2D>
+          <x3D>
+            <x3D_joint />
+            <x3D_frame />
+          </x3D>
+        </graphics>
+      </joint>
+      <graphics>
+        <x2D>
+          <position>
+            <x>1.0</x>
+            <y>2.0</y>
+          </position>
+          <name_pos>
+            <x>0.0</x>
+            <y>0.0</y>
+          </name_pos>
+          <shape>ellipse</shape>
+          <size>
+            <x>23.0</x>
+            <y>75.0</y>
+          </size>
+          <control_points>
+            <control_point>
+              <x>24.0</x>
+              <y>2.0</y>
+            </control_point>
+            <control_point>
+              <x>1.0</x>
+              <y>77.0</y>
+            </control_point>
+            <control_point>
+              <x>-22.0</x>
+              <y>2.0</y>
+            </control_point>
+            <control_point>
+              <x>1.0</x>
+              <y>-73.0</y>
+            </control_point>
+          </control_points>
+          <angle>0.0</angle>
+        </x2D>
+        <x3D>
+          <x3D_com />
+          <x3D_points />
+          <x3D_lines />
+          <x3D_shapes>
+            <cylinder>
+              <name>New_Shape</name>
+              <position>
+                <x>0.05</x>
+                <y>0.0</y>
+                <z>0.0</z>
+              </position>
+              <scale>
+                <x>1.0</x>
+                <y>1.0</y>
+                <z>1.0</z>
+              </scale>
+              <rotation>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>1.5707963267948966</z>
+              </rotation>
+              <color R="0" G="0" B="0" />
+              <specularColor R="255" G="255" B="255" />
+              <shininess>250.0</shininess>
+              <transparency>0.0</transparency>
+              <radius>0.4</radius>
+              <height>0.1</height>
+            </cylinder>
+          </x3D_shapes>
         </x3D>
       </graphics>
     </body>
   </bodytree>
+  <cuts>
+    <!--this is the cut list-->
+    <ball>
+      <name>Cut_0</name>
+      <endpoint1>
+        <bodyname>bras_inf</bodyname>
+        <pointname>Point_sortie_inf</pointname>
+      </endpoint1>
+      <endpoint2>
+        <bodyname>fusee</bodyname>
+        <pointname>Point_0</pointname>
+      </endpoint2>
+      <graphics>
+        <x3D>
+          <shown />
+        </x3D>
+      </graphics>
+    </ball>
+  </cuts>
+  <links>
+    <!--this is the link list-->
+    <link>
+      <name>Link_0</name>
+      <endpoint1>
+        <bodyname>base</bodyname>
+        <pointname>Point_ressort</pointname>
+      </endpoint1>
+      <endpoint2>
+        <bodyname>bras_inf</bodyname>
+        <pointname>Point_ressort2</pointname>
+      </endpoint2>
+      <graphics>
+        <x3D>
+          <shown />
+        </x3D>
+      </graphics>
+    </link>
+  </links>
   <x3D>
+    <hide_inertial_frame />
     <background>
       <!--This is the background properties-->
       <color R="51" G="102" B="204" />

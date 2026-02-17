@@ -39,7 +39,7 @@ except:
 # %%===========================================================================
 # Project loading
 # =============================================================================
-mbs_data = Robotran.MbsData("../dataR/Suspension_a_double_triangulation.mbs")
+mbs_data = Robotran.MbsData("dataR/Suspension_a_double_triangulation.mbs")
 
 # %%===========================================================================
 # Partitionning
