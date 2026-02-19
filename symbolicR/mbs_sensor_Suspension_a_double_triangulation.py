@@ -10,12 +10,12 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Tue Feb 17 18:10:01 2026
+#	==> Generation Date: Thu Feb 19 16:22:13 2026
 #	==> using automatic loading with extension .mbs 
 #
 #	==> Project name: Suspension_a_double_triangulation
 #
-#	==> Number of joints: 4
+#	==> Number of joints: 5
 #
 #	==> Function: F6 - Sensors Kinematics
 #

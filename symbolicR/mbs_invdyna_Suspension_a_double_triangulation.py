@@ -10,12 +10,12 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Tue Feb 17 18:10:01 2026
+#	==> Generation Date: Thu Feb 19 16:22:13 2026
 #	==> using automatic loading with extension .mbs 
 #
 #	==> Project name: Suspension_a_double_triangulation
 #
-#	==> Number of joints: 4
+#	==> Number of joints: 5
 #
 #	==> Function: F2 - Recursive Inverse Dynamics of tree-like MBS
 #
@@ -39,6 +39,8 @@ def invdyna(phi,s,tsim):
     C3 = cos(q[3])
     S4 = sin(q[4])
     C4 = cos(q[4])
+    S5 = sin(q[5])
+    C5 = cos(q[5])
  
 # Augmented Joint Position Vectors
 

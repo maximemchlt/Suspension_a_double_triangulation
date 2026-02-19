@@ -1,0 +1,16 @@
+
+##############################################################
+#	file6.gen 19/02/2026 16:22:13    messages
+##############################################################
+    Old current.gen /usr/local/robotran/users/LEPL1504/upload/file6.gen loading
+Symbolic generation file : /usr/local/robotran/users/LEPL1504/upload/file6.gen
+Project: /usr/local/robotran/users/LEPL1504/upload/upload.mbs
+F27 - Link Forces (3D)
+
+##############################################################
+#	file5.gen 19/02/2026 16:22:13    messages
+##############################################################
+    Old current.gen /usr/local/robotran/users/LEPL1504/upload/file5.gen loading
+Symbolic generation file : /usr/local/robotran/users/LEPL1504/upload/file5.gen
+Project: /usr/local/robotran/users/LEPL1504/upload/upload.mbs
+F19 - External Forces

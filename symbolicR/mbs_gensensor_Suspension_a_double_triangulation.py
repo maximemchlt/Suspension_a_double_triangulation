@@ -10,12 +10,12 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Tue Feb 17 18:10:01 2026
+#	==> Generation Date: Thu Feb 19 16:22:13 2026
 #	==> using automatic loading with extension .mbs 
 #
 #	==> Project name: Suspension_a_double_triangulation
 #
-#	==> Number of joints: 4
+#	==> Number of joints: 5
 #
 #	==> Function: F6 - Sensors Kinematics
 #
@@ -40,6 +40,8 @@ def sensor(sens, s, isens):
   C3 = cos(q[3])
   S4 = sin(q[4])
   C4 = cos(q[4])
+  S5 = sin(q[5])
+  C5 = cos(q[5])
  
 # Augmented Joint Position Vectors
 
@@ -162,6 +164,71 @@ def sensor(sens, s, isens):
     sens.A[3] = ACcp4_33
     sens.OMP[1] = 0
     sens.OMP[2] = OPcp4_23
+    sens.OMP[3] = 0
+
+  if (isens == 5): 
+
+    ROcp5_14 = C3*C4-S3*S4
+    ROcp5_34 = -C3*S4-S3*C4
+    ROcp5_74 = C3*S4+S3*C4
+    ROcp5_94 = C3*C4-S3*S4
+    ROcp5_15 = ROcp5_14*C5-ROcp5_74*S5
+    ROcp5_35 = ROcp5_34*C5-ROcp5_94*S5
+    ROcp5_75 = ROcp5_14*S5+ROcp5_74*C5
+    ROcp5_95 = ROcp5_34*S5+ROcp5_94*C5
+    POcp5_32 = q[1]+s.dpt[3,3]
+    RLcp5_13 = s.dpt[1,7]*C3
+    RLcp5_33 = -s.dpt[1,7]*S3
+    POcp5_13 = RLcp5_13+s.dpt[1,3]
+    POcp5_33 = POcp5_32+RLcp5_33
+    OMcp5_23 = qd[3]+qd[4]
+    ORcp5_13 = RLcp5_33*qd[3]
+    ORcp5_33 = -RLcp5_13*qd[3]
+    VIcp5_33 = ORcp5_33+qd[1]
+    OPcp5_23 = qdd[3]+qdd[4]
+    ACcp5_13 = ORcp5_33*qd[3]+RLcp5_33*qdd[3]
+    ACcp5_33 = qdd[1]-ORcp5_13*qd[3]-RLcp5_13*qdd[3]
+    RLcp5_14 = ROcp5_14*s.dpt[1,8]+ROcp5_74*s.dpt[3,8]
+    RLcp5_34 = ROcp5_34*s.dpt[1,8]+ROcp5_94*s.dpt[3,8]
+    POcp5_14 = POcp5_13+RLcp5_14
+    POcp5_34 = POcp5_33+RLcp5_34
+    JTcp5_14_2 = RLcp5_33+RLcp5_34
+    JTcp5_34_2 = -RLcp5_13-RLcp5_14
+    OMcp5_24 = OMcp5_23+qd[5]
+    ORcp5_14 = OMcp5_23*RLcp5_34
+    ORcp5_34 = -OMcp5_23*RLcp5_14
+    VIcp5_14 = ORcp5_13+ORcp5_14
+    VIcp5_34 = ORcp5_34+VIcp5_33
+    OPcp5_24 = OPcp5_23+qdd[5]
+    ACcp5_14 = ACcp5_13+OMcp5_23*ORcp5_34+OPcp5_23*RLcp5_34
+    ACcp5_34 = ACcp5_33-OMcp5_23*ORcp5_14-OPcp5_23*RLcp5_14
+    sens.P[1] = POcp5_14
+    sens.P[2] = 0
+    sens.P[3] = POcp5_34
+    sens.R[1,1] = ROcp5_15
+    sens.R[1,3] = ROcp5_35
+    sens.R[2,2] = (1.0)
+    sens.R[3,1] = ROcp5_75
+    sens.R[3,3] = ROcp5_95
+    sens.V[1] = VIcp5_14
+    sens.V[2] = 0
+    sens.V[3] = VIcp5_34
+    sens.OM[1] = 0
+    sens.OM[2] = OMcp5_24
+    sens.OM[3] = 0
+    sens.J[1,3] = JTcp5_14_2
+    sens.J[1,4] = RLcp5_34
+    sens.J[3,1] = (1.0)
+    sens.J[3,3] = JTcp5_34_2
+    sens.J[3,4] = -RLcp5_14
+    sens.J[5,3] = (1.0)
+    sens.J[5,4] = (1.0)
+    sens.J[5,5] = (1.0)
+    sens.A[1] = ACcp5_14
+    sens.A[2] = 0
+    sens.A[3] = ACcp5_34
+    sens.OMP[1] = 0
+    sens.OMP[2] = OPcp5_24
     sens.OMP[3] = 0
 
  

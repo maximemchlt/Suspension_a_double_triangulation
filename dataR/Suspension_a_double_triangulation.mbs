@@ -11,14 +11,81 @@
         <z>9.81</z>
       </coordinates>
     </gravity>
+    <baseBodyName>Body_0</baseBodyName>
     <graphics>
       <x2D>
         <position>
-          <x>100.0</x>
-          <y>200.0</y>
+          <x>232.0</x>
+          <y>502.0</y>
         </position>
+        <base_body>
+          <position>
+            <x>-123.0</x>
+            <y>-19.0</y>
+          </position>
+          <name_pos>
+            <x>0.0</x>
+            <y>0.0</y>
+          </name_pos>
+          <shape>rectangle</shape>
+          <size>
+            <x>1141.0</x>
+            <y>42.0</y>
+          </size>
+          <control_points>
+            <control_point>
+              <x>1018.0</x>
+              <y>-19.0</y>
+            </control_point>
+            <control_point>
+              <x>1018.0</x>
+              <y>23.0</y>
+            </control_point>
+            <control_point>
+              <x>-123.0</x>
+              <y>23.0</y>
+            </control_point>
+            <control_point>
+              <x>-123.0</x>
+              <y>-19.0</y>
+            </control_point>
+          </control_points>
+          <angle>0.0</angle>
+        </base_body>
       </x2D>
-      <x3D />
+      <x3D>
+        <x3D_points />
+        <x3D_lines />
+        <x3D_shapes>
+          <box>
+            <name>Base</name>
+            <position>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>10.0</x>
+              <y>10.0</y>
+              <z>0.1</z>
+            </size>
+          </box>
+        </x3D_shapes>
+      </x3D>
     </graphics>
   </base>
   <bodytree>
@@ -34,7 +101,7 @@
         <type>T3</type>
         <nature>independent</nature>
         <initialvalue>
-          <qd>-5.0</qd>
+          <q>-0.5</q>
         </initialvalue>
         <graphics>
           <x2D>
@@ -179,7 +246,7 @@
               <color R="0" G="0" B="0" />
               <specularColor R="255" G="255" B="255" />
               <shininess>250.0</shininess>
-              <transparency>1.0</transparency>
+              <transparency>0.0</transparency>
               <size>
                 <x>0.323</x>
                 <y>0.5</y>
@@ -206,7 +273,7 @@
               <color R="0" G="0" B="0" />
               <specularColor R="255" G="255" B="255" />
               <shininess>250.0</shininess>
-              <transparency>1.0</transparency>
+              <transparency>0.0</transparency>
               <size>
                 <x>0.374</x>
                 <y>0.5</y>
@@ -214,7 +281,7 @@
               </size>
             </box>
             <box>
-              <name>New_Shape</name>
+              <name>ra</name>
               <position>
                 <x>0.205</x>
                 <y>0.0</y>
@@ -233,7 +300,7 @@
               <color R="0" G="0" B="0" />
               <specularColor R="255" G="255" B="255" />
               <shininess>250.0</shininess>
-              <transparency>1.0</transparency>
+              <transparency>0.0</transparency>
               <size>
                 <x>0.41</x>
                 <y>0.5</y>
@@ -390,7 +457,7 @@
       <joint>
         <jointname>Joint_1</jointname>
         <type>R2</type>
-        <nature>independent</nature>
+        <nature>dependent</nature>
         <graphics>
           <x2D>
             <position>
@@ -510,7 +577,7 @@
       <joint>
         <jointname>Joint_2</jointname>
         <type>R2</type>
-        <nature>independent</nature>
+        <nature>dependent</nature>
         <graphics>
           <x2D>
             <position>
@@ -666,7 +733,120 @@
         </x3D>
       </graphics>
     </body>
+    <body>
+      <bodyname>Roue</bodyname>
+      <parent>
+        <bodyname>fusee</bodyname>
+        <pointname>roue</pointname>
+      </parent>
+      <joint>
+        <jointname>Joint_4</jointname>
+        <type>R2</type>
+        <nature>independent</nature>
+        <initialvalue>
+          <q>-0.2</q>
+        </initialvalue>
+        <graphics>
+          <x2D>
+            <position>
+              <x>773.0</x>
+              <y>264.0</y>
+            </position>
+          </x2D>
+          <x3D>
+            <x3D_joint />
+            <x3D_frame />
+          </x3D>
+        </graphics>
+      </joint>
+      <graphics>
+        <x2D>
+          <position>
+            <x>4.0</x>
+            <y>0.0</y>
+          </position>
+          <name_pos>
+            <x>0.0</x>
+            <y>0.0</y>
+          </name_pos>
+          <shape>ellipse</shape>
+          <size>
+            <x>37.0</x>
+            <y>163.0</y>
+          </size>
+          <control_points>
+            <control_point>
+              <x>41.0</x>
+              <y>0.0</y>
+            </control_point>
+            <control_point>
+              <x>4.0</x>
+              <y>77.0</y>
+            </control_point>
+            <control_point>
+              <x>-33.0</x>
+              <y>0.0</y>
+            </control_point>
+            <control_point>
+              <x>4.0</x>
+              <y>-77.0</y>
+            </control_point>
+          </control_points>
+          <angle>0.0</angle>
+        </x2D>
+        <x3D>
+          <x3D_com />
+          <x3D_points />
+          <x3D_lines />
+          <x3D_shapes>
+            <cylinder>
+              <name>New_Shape</name>
+              <position>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>0.0</z>
+              </position>
+              <scale>
+                <x>1.0</x>
+                <y>1.0</y>
+                <z>1.0</z>
+              </scale>
+              <rotation>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>1.5707963267948966</z>
+              </rotation>
+              <color R="0" G="0" B="0" />
+              <specularColor R="255" G="255" B="255" />
+              <shininess>250.0</shininess>
+              <transparency>0.5</transparency>
+              <radius>0.2</radius>
+              <height>0.1</height>
+            </cylinder>
+          </x3D_shapes>
+        </x3D>
+      </graphics>
+    </body>
   </bodytree>
+  <cuts>
+    <!--this is the cut list-->
+    <ball>
+      <name>Cut_0</name>
+      <endpoint1>
+        <bodyname>brass_inf</bodyname>
+        <pointname>suite</pointname>
+      </endpoint1>
+      <endpoint2>
+        <bodyname>fusee</bodyname>
+        <pointname>Point_0</pointname>
+      </endpoint2>
+      <graphics>
+        <x3D>
+          <shown />
+        </x3D>
+      </graphics>
+    </ball>
+  </cuts>
   <links>
     <!--this is the link list-->
     <link>
