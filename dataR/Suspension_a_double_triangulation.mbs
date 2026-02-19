@@ -458,6 +458,9 @@
         <jointname>Joint_1</jointname>
         <type>R2</type>
         <nature>dependent</nature>
+        <initialvalue>
+          <q>0.25</q>
+        </initialvalue>
         <graphics>
           <x2D>
             <position>
@@ -742,10 +745,30 @@
       <joint>
         <jointname>Joint_4</jointname>
         <type>R2</type>
-        <nature>independent</nature>
+        <nature>dependent</nature>
         <initialvalue>
           <q>-0.2</q>
         </initialvalue>
+                <extforce name="ExtForce" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true">
+          <x3D>
+            <force show="true" showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
+              <x_color R="255" G="0" B="0" />
+              <y_color R="0" G="255" B="0" />
+              <z_color R="0" G="0" B="255" />
+              <resultant_color R="0" G="0" B="0" />
+              <diameter>0.05</diameter>
+              <scale>1.0</scale>
+            </force>
+            <torque showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
+              <x_color R="255" G="0" B="0" />
+              <y_color R="0" G="255" B="0" />
+              <z_color R="0" G="0" B="255" />
+              <resultant_color R="0" G="0" B="0" />
+              <diameter>0.1</diameter>
+              <scale>1.0</scale>
+            </torque>
+          </x3D>
+        </extforce>
         <graphics>
           <x2D>
             <position>
@@ -850,7 +873,7 @@
   <links>
     <!--this is the link list-->
     <link>
-      <name>Link_0</name>
+      <name>suspension</name>
       <endpoint1>
         <bodyname>chassis</bodyname>
         <pointname>point_ra</pointname>

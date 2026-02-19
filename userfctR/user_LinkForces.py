@@ -29,6 +29,14 @@ def user_LinkForces(Z, Zd, mbs_data, tsim, identity):
 
     Flink = 0.0
 
+
+    Link_Suspension = mbs_data.link_id["suspension"]
+    
+    if (identity == Link_Suspension):
+        K = mbs_data.user_model["suspension"]["Kr"]
+        D = mbs_data.user_model["suspension"]["D"]
+        L0 = mbs_data.user_model["suspension"]["Z0"]
+        Flink = K*(Z-L0)+D*Zd
     # Example: linear spring
     # k = 1000 #N/m
     # Z0= 0.1  #m

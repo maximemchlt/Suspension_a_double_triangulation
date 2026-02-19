@@ -62,6 +62,12 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
     idpt = mbs_data.xfidpt[ixF]
     dxF = mbs_data.dpt[1:, idpt]
 
+    Fext = mbs_data.extforce_id["ExtForce"]
+    if ixF == Fext:
+        K = mbs_data.user_model["extforce"]["K"]
+        L0 = mbs_data.user_model["extforce"]["R0"]
+        Fz = -K*(PxF[3]-L0)
+
     # Example : Contact force with a wall when X coordinate is higher than 1m.
     #           The force is perfectly horizontal (inertial frame)
     # xlim = 1.0 # m
